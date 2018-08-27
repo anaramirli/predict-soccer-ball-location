@@ -19,3 +19,7 @@ In this doocument, we aim to find ball location during the game. As there are in
 ### scale_roleassign_visualization.ipynb
 ----------------------------------------
 In this notebook, we visualize player avrg position (before and after scaling states) by drawing their average position using matplotlip. And also show example of role assignment.
+
+### requirements.ipynb
+----------------------
+This is the notebook you can use to check if your system meets the requirements to run all the notebooks.
