@@ -23,3 +23,7 @@ In this notebook, we visualize player avrg position (before and after scaling st
 ### requirements.ipynb
 ----------------------
 This is the notebook you can use to check if your system meets the requirements to run all the notebooks.
+
+### utils.py
+------------
+This file contains the common utility functions that are used from different notebooks.
