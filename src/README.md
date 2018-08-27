@@ -1,8 +1,8 @@
 ## Core Source Files
 These are the notebooks used during model development and optimization.
 
-### feature_analysis.ipynb
---------------------------
+### feature_construction.ipynb
+------------------------------
 This is the notebook in which we compute features from player coordinate data. This notebook contains our initial feature construction code. We generate input (aligning player trajectories based in role and then setting new features based on spatiotemporal data) and output data in order to build model for predicting ball location over the pitch. Due to losses in data, some matches have been extracted, so the total number of matches used is 299.
 
 This was our first notebook when we started this project. Therefore, several ideas written in this document may be replaced or not used at all. However, keeping this notebook as a reference may prove useful in further studies.
