@@ -244,22 +244,40 @@ def define_pitch_index(x,y):
     
     Returns
     -------
-    1-294: pitch index
+    1-33: pitch index
         0: Null index(0) represents all the index categories, that occur when the game stops.
     '''
-    Xi=x//5
-    if y<=60:
-        Yj = y//5+1
-    elif y<=64:
-        Yj = 13
+    if y<=22:
+        i=0
+    elif y<=46:
+        i=1
     else:
-        Yj = 14
+        i=2
+ 
+    if x<=7.5:
+        j=1
+    elif x<=17.5:
+        j=4
+    elif x<=27.5:
+        j=7
+    elif x<=37.5:
+        j=10
+    elif x<=47.5:
+        j=13
+    elif x<=57.5:
+        j=16
+    elif x<=67.5:
+        j=19
+    elif x<=77.5:
+        j=22
+    elif x<=87.5:
+        j=25
+    elif x<=97.5:
+        j=28
+    else: 
+        j=31
 
-    if Xi==21:
-        Xi-=1
-    index = Xi*14 + Yj
-
-    return index
+    return i+j
 
 
 def speed_group(speed):
@@ -382,7 +400,18 @@ def feature_generation(r,speed,jersey_no,features_count, team_f_speed_dict):
             
 def scale_linear_data(rawpoints, high, low):
     '''
-    Function for sclaing player avrg position to the same size with pitch
+    Function for sclaing player avrg position to the to the range of (105+std)(68-std)
+    
+    Parameters
+    ----------
+    rawpoints: player average pos data
+    
+    high: furthest point of scaling range
+    
+    low: lowest point of scaling range
+    
+    std: standard deviation of player positions 
+    
     '''
     mins = np.min(rawpoints, axis=0)
     maxs = np.max(rawpoints, axis=0)
