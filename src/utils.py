@@ -247,6 +247,12 @@ def define_pitch_index(x,y):
     1-33: pitch index
         0: Null index(0) represents all the index categories, that occur when the game stops.
     '''
+    i=0
+    j=0
+    
+    
+    
+    
     if y<=22:
         i=0
     elif y<=46:
@@ -254,30 +260,52 @@ def define_pitch_index(x,y):
     else:
         i=2
  
-    if x<=7.5:
-        j=1
-    elif x<=17.5:
-        j=4
-    elif x<=27.5:
-        j=7
+    if x<=27.5:
+        j=5
     elif x<=37.5:
-        j=10
+        j=8
     elif x<=47.5:
-        j=13
+        j=11
     elif x<=57.5:
-        j=16
+        j=14
     elif x<=67.5:
-        j=19
+        j=17
     elif x<=77.5:
-        j=22
+        j=20
     elif x<=87.5:
-        j=25
-    elif x<=97.5:
-        j=28
-    else: 
-        j=31
-
-    return i+j
+        j=23
+   
+    index = i+j
+    
+    
+    if y>22 and y<=46:
+        if x<=7.5:
+            index=2
+        elif x<=17.5:
+            index=4
+        
+        if x>87.5:
+            if x<=97.5:
+                index = 27
+            else:
+                index = 29
+    
+        
+    if x<=17.5:
+        if y<=22:
+            index = 1
+        elif y>46:
+            index = 3
+        
+    if x>87.5:
+        if y<=22:
+            index = 26
+        elif y>46:
+            index = 28
+    
+    assert index>0, 'Index can not be zero or non negative: index-value: {}, x-value: {}, y-value: {}'.format(index, x,y)
+    
+    return index
 
 
 def speed_group(speed):
