@@ -319,12 +319,11 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
     
     for f_a_i in range(7):
         
-        slow_group_count = 0
-        hir_group_count = 0
+        slow_group_id=[]
+        hir_group_id=[]
     
         if len(team_f_speed_dict[f_a_i])!=0:
-            
-            max_distance = []
+
             player_x = []
             player_y = []
             
@@ -348,11 +347,11 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
                 if s_group==0:
                     f_group_v[f_a_i][7] += x_data[player][1]
                     f_group_v[f_a_i][8] += y_data[player][1]
-                    slow_group_count +=1
+                    slow_group_id.append(player)
                 elif s_group==1:
-                    f_group_v[f_a_i][9] += x_data[player][1]
-                    f_group_v[f_a_i][10] += y_data[player][1]
-                    hir_group_count +=1
+                    f_group_v[f_a_i][10] += x_data[player][1]
+                    f_group_v[f_a_i][11] += y_data[player][1]
+                    hir_group_id.append(player)
                     
             
             f_group_v[f_a_i][4:7] = f_group_v[f_a_i][4:7]/len(team_f_speed_dict[f_a_i])
@@ -363,18 +362,43 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
             f_group_v[f_a_i][3] = min(player_y)
 
             # calculate avrg for slow group
-            if slow_group_count!=0:
-                f_group_v[f_a_i][7:9] = f_group_v[f_a_i][7:9] / slow_group_count
+            if len(slow_group_id)==1:
+                f_group_v[f_a_i][9] = 1
+        
+            elif len(slow_group_id)>1:
+                f_group_v[f_a_i][7:9] = f_group_v[f_a_i][7:9] / len(slow_group_id)
+                max_distance_slow = []
+                for player_s in slow_group_id:
+                    max_distance_slow.append(math.fabs(f_group_v[f_a_i][7]-x_data[player_s][1]))
 
+                max_distance_slow = max(max_distance_slow)
+                if max_distance_slow<1:
+                    max_distance_slow=1
+                f_group_v[f_a_i][9] = 1/max_distance_slow
+
+                
             # calculate avrg for hir group
-            if hir_group_count!=0:
-                f_group_v[f_a_i][9:11] = f_group_v[f_a_i][9:11] / hir_group_count
-            
+            if len(hir_group_id)==1:
+                f_group_v[f_a_i][12] = 1
+        
+            elif len(hir_group_id)>1:
+                f_group_v[f_a_i][10:12] = f_group_v[f_a_i][10:12] / len(hir_group_id)
+                max_distance_hir = []
+                for player_s in hir_group_id:
+                    max_distance_hir.append(math.fabs(f_group_v[f_a_i][10]-x_data[player_s][1]))
+
+                max_distance_hir = max(max_distance_hir)
+                if max_distance_hir<1:
+                    max_distance_hir=1
+                f_group_v[f_a_i][12] = 1/max_distance_hir
+
+                
+            # calcualte max-Sprint player
             if max(team_f_speed_dict[f_a_i].items(), key=operator.itemgetter(1))[1] > 3:
                 max_speed_id = max(team_f_speed_dict[f_a_i].items(), key=operator.itemgetter(1))[0]
-                f_group_v[f_a_i][11]  = x_data[max_speed_id][1]
-                f_group_v[f_a_i][12] = y_data[max_speed_id][1]
-                f_group_v[f_a_i][13] = team_f_speed_dict[f_a_i][max_speed_id]
+                f_group_v[f_a_i][13]  = x_data[max_speed_id][1]
+                f_group_v[f_a_i][14] = y_data[max_speed_id][1]
+                f_group_v[f_a_i][15] = team_f_speed_dict[f_a_i][max_speed_id]
 
            
 
