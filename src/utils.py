@@ -16,9 +16,13 @@
 import pandas as pd
 import numpy as np
 import math
+from collections import Counter
 from scipy.ndimage.interpolation import shift
 import operator
+from os.path import join
 import scipy as sc
+
+
 
 def caluclate_avrg_pos(c_ap_minutes_step, pos_mean, player, pos_count, activity_count):
     '''
@@ -250,62 +254,108 @@ def define_pitch_index(x,y):
     i=0
     j=0
     
-    
-    
-    
+
     if y<=22:
         i=0
     elif y<=46:
         i=1
     else:
         i=2
- 
-    if x<=27.5:
+    
+    if x<=31.5:
         j=5
-    elif x<=37.5:
+    elif x<=42:
         j=8
-    elif x<=47.5:
+    elif x<=52.5:
         j=11
-    elif x<=57.5:
+    elif x<=63:
         j=14
-    elif x<=67.5:
+    elif x<=73.5:
         j=17
-    elif x<=77.5:
+    elif x<=84:
         j=20
-    elif x<=87.5:
-        j=23
    
     index = i+j
     
     
     if y>22 and y<=46:
-        if x<=7.5:
+        if x<=10.5:
             index=2
-        elif x<=17.5:
+        elif x<=21:
             index=4
         
-        if x>87.5:
-            if x<=97.5:
-                index = 27
+        if x>84:
+            if x<=94.5:
+                index = 24
             else:
-                index = 29
+                index = 26
     
         
-    if x<=17.5:
+    if x<=21:
         if y<=22:
             index = 1
         elif y>46:
             index = 3
         
-    if x>87.5:
+    if x>84:
         if y<=22:
-            index = 26
+            index = 23
         elif y>46:
-            index = 28
+            index = 25
     
     assert index>0, 'Index can not be zero or non negative: index-value: {}, x-value: {}, y-value: {}'.format(index, x,y)
     
     return index
+
+
+def construct_train_set(event_files):
+    pd.options.mode.chained_assignment = None
+    feature_df = pd.DataFrame()
+
+    # get match information
+    match_id = event_files.split('_')[0]
+
+    try:
+        feature_df = pd.read_csv(join('../data/general/feature-set/', event_files))
+        print('Current data: {}'.format(match_id))
+    except FileNotFoundError:
+        print('No feature data for: {}'.format(match_id))
+        return
+    
+    occurence = []
+    for i in range(27):
+        occurence.append(Counter(feature_df['pitch_index'])[i])
+    occurence = np.sort(occurence)
+    max_occurecnce = max(occurence)
+    thserhlod_value = occurence[25]
+
+    feature_df = feature_df.sample(frac=1).reset_index(drop=True)
+    feature_df.sort_values('pitch_index', inplace=True)
+    feature_df.reset_index(inplace=True, drop=True)
+
+    zero_seperation_value = 140 if max_occurecnce-thserhlod_value >= 140 else max_occurecnce-thserhlod_value
+
+    # iloc, shuffle and rest
+    feature_df = feature_df.iloc[max_occurecnce-zero_seperation_value:]
+    feature_df = feature_df.sample(frac=1).reset_index(drop=True)
+    
+    return feature_df
+
+def construct_test_set(event_files):
+    pd.options.mode.chained_assignment = None
+    feature_df = pd.DataFrame()
+
+    # get match information
+    match_id = event_files.split('_')[0]
+
+    try:
+        feature_df = pd.read_csv(join('../data/general/feature-set/', event_files))
+        print('Current data: {}'.format(match_id))
+    except FileNotFoundError:
+        print('No feature data for: {}'.format(match_id))
+        return
+    
+    return feature_df
 
 
 def speed_group(speed):
