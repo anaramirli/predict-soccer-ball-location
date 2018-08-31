@@ -486,7 +486,7 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
         team_v[1] = min(team_x)
         team_v[2] = max(team_y)
         team_v[3] = min(team_y)
-        team_v[4:7] = team_v[0:3] / len(team_x)
+        team_v[4:7] = team_v[4:7] / len(team_x)
     else:
         team_v[0:7] = 0
         f_group_v[f_a_i][0:len(f_group_v[0])] = 0
