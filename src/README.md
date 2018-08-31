@@ -9,11 +9,11 @@ This was our first notebook when we started this project. Therefore, several ide
 
 ### feature_analysis.ipynb
 --------------------------
-In this notebook, we analyse player coordinate data by plotting various simple features such as average, maximum and minimum coordinates, group speeds, sprint player coordinates, referee position, etc. We try to find relations between outliers or patterns in these features and the events we wish to predict. Additionally, we postulate ideas about how each related feature family can be effective in predicting certain events.
+In this notebook, we analyze player coordinate data by plotting various simple features such as average, maximum and minimum coordinates, group speeds, sprint player coordinates, referee position, etc. We try to find relations between outliers or patterns in these features and the events we wish to predict. Additionally, we postulate ideas about how each related feature family can be effective in predicting certain events.
 
 ### target_analysis.ipynb
 -------------------------
-In this doocument, we aim to find ball location during the game. As there are infinite numbers of the data points in the pitch surface, it's merely impossible to predict exact ball location each time. Then we anlisyse number of asssigments to each position segments.
+In this document, we aim to find ball location during the game. As there are infinite numbers of the data points in the pitch surface, it's merely impossible to predict exact ball location each time. Then we analyze number of assignments to each position segments.
 
 ### scale_roleassign_visualization.ipynb
 ----------------------------------------
