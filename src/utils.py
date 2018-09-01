@@ -18,9 +18,20 @@ import numpy as np
 import math
 from collections import Counter
 from scipy.ndimage.interpolation import shift
+import matplotlib.pyplot as plt
 import operator
 from os.path import join
 import scipy as sc
+import warnings
+import functools
+import itertools
+
+
+from sklearn.cluster import DBSCAN
+from sklearn import metrics
+from sklearn.datasets.samples_generator import make_blobs
+from sklearn.preprocessing import StandardScaler
+
 
 
 
@@ -236,6 +247,125 @@ def define_role(x, y, pitch_value, gk_state):
                 return pitch_i
     return -1
 
+
+
+
+def plot_hbar_nameval(names, values, xlabel, max_bars=30):
+    """
+    Plots a horizontal bar chart with names as labels and values as the length
+    of the bars.
+    Parameters
+    ----------
+    names : Iterable
+        Bar labels.
+    values : Iterable
+        Corresponding value of each label given in names.
+    xlabel : str
+        Label of the horizontal axis.
+    max_bars : int
+        Maximum number of horizontal bars to plot.
+    Returns
+    -------
+    fig : matplotlib.figure
+        Plot figure.
+    ax : matplotlib.Axes
+        matplotlib.Axes object with horizontal bar chart plotted.
+    """
+    name_val = list(zip(names, values))
+    name_val.sort(key=lambda t: t[1], reverse=True)
+    if len(name_val) > max_bars:
+        name_val = name_val[:max_bars]
+    names, values = zip(*name_val)
+
+    plt.figure(figsize=(10, 8))
+    plt.rcdefaults()
+    
+    
+
+    y_pos = np.arange(len(names))
+
+    plt.barh(y_pos, values, align='center')
+    plt.yticks(y_pos,names)
+    plt.gca().invert_yaxis()
+    plt.xlabel(xlabel)
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_confusion_matrix(cm,
+                          classes,
+                          xlabel,
+                          ylabel,
+                          normalize=False,
+                          cmap=plt.cm.Blues):
+    """
+    Plot the given confusion matrix cm as a matrix using and return the
+    resulting axes object containing the plot.
+    Parameters
+    ----------
+    cm : ndarray
+        Confusion matrix as a 2D numpy.array.
+    classes : list of str
+        Names of classified classes.
+    xlabel : str
+    Label of the horizontal axis.
+    ylabel : str
+    Label of the vertical axis.
+    normalize : bool
+        If True, the confusion matrix will be normalized. Otherwise, the values
+        in the given confusion matrix will be plotted as they are.
+    cmap : matplotlib.colormap
+        Colormap to use when plotting the confusion matrix.
+    Returns
+    -------
+    fig : matplotlib.figure
+        Plot figure.
+    ax : matplotlib.Axes
+        matplotlib.Axes object with horizontal bar chart plotted.
+    References
+    ----------
+    http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
+
+    """
+    vmin = None
+    vmax = None
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        vmin = 0
+        vmax = 1
+
+    plt.figure(figsize=(12, 12))
+    cax = plt.imshow(
+        cm, interpolation='nearest', vmin=vmin, vmax=vmax, cmap=cmap)
+    plt.colorbar(cax)
+
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+
+
+    plt.yticks(tick_marks,classes)
+
+
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        cell_str = '{:.2f}'.format(cm[i, j]) if normalize else str(cm[i, j])
+        plt.text(
+            j,
+            i,
+            cell_str,
+            horizontalalignment="center",
+            color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+  
+    plt.show()
+
+
+
+
+
 def define_pitch_index(x,y):
     '''
     Function to define pitch index and role
@@ -397,13 +527,15 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
     
     for f_a_i in range(7):
         
-        slow_group_id=[]
-        hir_group_id=[]
+        
     
         if len(team_f_speed_dict[f_a_i])!=0:
 
             player_x = []
             player_y = []
+            
+            slow_group_count=0
+            hir_group_count=0
             
             for player, speed in team_f_speed_dict[f_a_i].items():
                 s_group = speed_group(speed)
@@ -425,12 +557,11 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
                 if s_group==0:
                     f_group_v[f_a_i][7] += x_data[player][1]
                     f_group_v[f_a_i][8] += y_data[player][1]
-                    slow_group_id.append(player)
+                    slow_group_count+=1
                 elif s_group==1:
-                    f_group_v[f_a_i][10] += x_data[player][1]
-                    f_group_v[f_a_i][11] += y_data[player][1]
-                    hir_group_id.append(player)
-                    
+                    f_group_v[f_a_i][9] += x_data[player][1]
+                    f_group_v[f_a_i][10] += y_data[player][1]
+                    hir_group_count+=1
             
             f_group_v[f_a_i][4:7] = f_group_v[f_a_i][4:7]/len(team_f_speed_dict[f_a_i])
 
@@ -440,43 +571,21 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
             f_group_v[f_a_i][3] = min(player_y)
 
             # calculate avrg for slow group
-            if len(slow_group_id)==1:
-                f_group_v[f_a_i][9] = 1
-        
-            elif len(slow_group_id)>1:
-                f_group_v[f_a_i][7:9] = f_group_v[f_a_i][7:9] / len(slow_group_id)
-                max_distance_slow = []
-                for player_s in slow_group_id:
-                    max_distance_slow.append(math.fabs(f_group_v[f_a_i][7]-x_data[player_s][1]))
-
-                max_distance_slow = max(max_distance_slow)
-                if max_distance_slow<1:
-                    max_distance_slow=1
-                f_group_v[f_a_i][9] = 1/max_distance_slow
-
+            if slow_group_count>1:
+                f_group_v[f_a_i][7:9] = f_group_v[f_a_i][7:9] / slow_group_count
                 
             # calculate avrg for hir group
-            if len(hir_group_id)==1:
-                f_group_v[f_a_i][12] = 1
+            if hir_group_count>1:
+                f_group_v[f_a_i][9:11] = f_group_v[f_a_i][9:11] / hir_group_count
         
-            elif len(hir_group_id)>1:
-                f_group_v[f_a_i][10:12] = f_group_v[f_a_i][10:12] / len(hir_group_id)
-                max_distance_hir = []
-                for player_s in hir_group_id:
-                    max_distance_hir.append(math.fabs(f_group_v[f_a_i][10]-x_data[player_s][1]))
-
-                max_distance_hir = max(max_distance_hir)
-                if max_distance_hir<1:
-                    max_distance_hir=1
-                f_group_v[f_a_i][12] = 1/max_distance_hir
-
+           
                 
             # calcualte max-Sprint player
             if max(team_f_speed_dict[f_a_i].items(), key=operator.itemgetter(1))[1] > 3:
                 max_speed_id = max(team_f_speed_dict[f_a_i].items(), key=operator.itemgetter(1))[0]
-                f_group_v[f_a_i][13]  = x_data[max_speed_id][1]
-                f_group_v[f_a_i][14] = y_data[max_speed_id][1]
-                f_group_v[f_a_i][15] = team_f_speed_dict[f_a_i][max_speed_id]
+                f_group_v[f_a_i][11]  = x_data[max_speed_id][1]
+                f_group_v[f_a_i][12] = y_data[max_speed_id][1]
+                f_group_v[f_a_i][13] = team_f_speed_dict[f_a_i][max_speed_id]
 
            
 
@@ -491,8 +600,54 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
         team_v[0:7] = 0
         f_group_v[f_a_i][0:len(f_group_v[0])] = 0
         
-    
-    
+
+        
+def innerDBSCAN(X_all, x_all, eps_range, eps_min_sample):
+    teamDBSCAN_x=0
+    teamDBSCAN_y=0
+
+    value_ids = np.zeros(shape=(len(X_all)), dtype=np.int8)
+
+    for V_i in range(len(X_all)):
+        value_ids[V_i]=V_i
+
+    val_id=[]
+
+    db = DBSCAN(eps=eps_range, min_samples=eps_min_sample).fit(X_all)
+    core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
+    core_samples_mask[db.core_sample_indices_] = True
+    labels = db.labels_
+
+    unique_labels = set(labels)
+
+    max_key = 0
+    if len(Counter(labels))==1 and Counter(labels).most_common(1)[0][0]!=-1:
+        max_key=Counter(labels).most_common(1)[0][0]
+    elif len(Counter(labels))>1:
+        if Counter(labels).most_common(1)[0][0]==-1:
+            max_key = Counter(labels).most_common(2)[1][0]
+        else:
+            max_key = Counter(labels).most_common(2)[0][0]
+
+
+    for k_label in unique_labels:
+        class_member_mask = (labels == k_label)
+        if max_key!=-1 and max_key==k_label:
+            val_id = value_ids[class_member_mask & core_samples_mask]
+
+
+    if max_key== -1 or len(val_id)==0:
+        teamDBSCAN_x += np.sum(x_all[:,0], axis=0) / len(x_all)
+        teamDBSCAN_y += np.sum(x_all[:,1], axis=0) / len(x_all)
+    else:
+        for value_i in val_id:
+            teamDBSCAN_x += x_all[value_i][0]
+            teamDBSCAN_y += x_all[value_i][1]
+
+        teamDBSCAN_x/=len(val_id)
+        teamDBSCAN_y/=len(val_id)
+        
+    return teamDBSCAN_x, teamDBSCAN_y
     
 def feature_generation(r,speed,jersey_no,features_count, team_f_speed_dict):
     if r<=6:
