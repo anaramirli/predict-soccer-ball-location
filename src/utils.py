@@ -463,7 +463,7 @@ def construct_train_set(event_files):
     feature_df.sort_values('pitch_index', inplace=True)
     feature_df.reset_index(inplace=True, drop=True)
 
-    zero_seperation_value = 140 if max_occurecnce-thserhlod_value >= 140 else max_occurecnce-thserhlod_value
+    zero_seperation_value = 40 if max_occurecnce-thserhlod_value >= 40 else max_occurecnce-thserhlod_value
 
     # iloc, shuffle and rest
     feature_df = feature_df.iloc[max_occurecnce-zero_seperation_value:]
