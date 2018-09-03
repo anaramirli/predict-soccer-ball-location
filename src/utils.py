@@ -435,12 +435,15 @@ def define_pitch_index(x,y):
     return index
 
 
-def construct_train_set(match_id):
+def construct_train_set(event_files):
     pd.options.mode.chained_assignment = None
     feature_df = pd.DataFrame()
 
+    # get match information
+    match_id = event_files.split('_')[0]
+    
     try:
-        feature_df = pd.read_csv('../data/general/feature-set/match{}_features.csv'.format(match_id))
+        feature_df = pd.read_csv(join('../data/general/feature-set/', event_files))
         print('Current data: {}'.format(match_id))
     except FileNotFoundError:
         print('No feature data for: {}'.format(match_id))
