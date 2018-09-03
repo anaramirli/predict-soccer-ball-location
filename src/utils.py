@@ -391,83 +391,82 @@ def define_pitch_index(x,y):
         i=1
     else:
         i=2
-    
-    if x<=31.5:
-        j=5
-    elif x<=42:
-        j=8
-    elif x<=52.5:
-        j=11
-    elif x<=63:
-        j=14
-    elif x<=73.5:
-        j=17
-    elif x<=84:
-        j=20
+        
+    if x<=22.5:
+        j=1
+    elif x<=42.5:
+        j=4
+    elif x<=62.5:
+        j=7
+    elif x<=82.5:
+        j=10
+    else:
+        j=13
    
-    index = i+j
+    index = i+j   
     
+#     if y>22 and y<=46:
+#         if x<=10.5:
+#             index=2
+#         elif x<=21:
+#             index=4
+        
+#         if x>84:
+#             if x<=94.5:
+#                 index = 24
+#             else:
+#                 index = 26
     
-    if y>22 and y<=46:
-        if x<=10.5:
-            index=2
-        elif x<=21:
-            index=4
         
-        if x>84:
-            if x<=94.5:
-                index = 24
-            else:
-                index = 26
-    
+#     if x<=21:
+#         if y<=22:
+#             index = 1
+#         elif y>46:
+#             index = 3
         
-    if x<=21:
-        if y<=22:
-            index = 1
-        elif y>46:
-            index = 3
-        
-    if x>84:
-        if y<=22:
-            index = 23
-        elif y>46:
-            index = 25
+#     if x>84:
+#         if y<=22:
+#             index = 23
+#         elif y>46:
+#             index = 25
     
     assert index>0, 'Index can not be zero or non negative: index-value: {}, x-value: {}, y-value: {}'.format(index, x,y)
     
     return index
 
 
-def construct_train_set(event_files):
+def construct_train_set(match_id):
     pd.options.mode.chained_assignment = None
     feature_df = pd.DataFrame()
 
-    # get match information
-    match_id = event_files.split('_')[0]
-
     try:
-        feature_df = pd.read_csv(join('../data/general/feature-set/', event_files))
+        feature_df = pd.read_csv('../data/general/feature-set/match{}_features.csv'.format(match_id))
         print('Current data: {}'.format(match_id))
     except FileNotFoundError:
         print('No feature data for: {}'.format(match_id))
         return
     
-    occurence = []
-    for i in range(27):
-        occurence.append(Counter(feature_df['pitch_index'])[i])
-    occurence = np.sort(occurence)
-    max_occurecnce = max(occurence)
-    thserhlod_value = occurence[25]
+    
+    if Counter(feature_df['pitch_index']).most_common(2)[0][0]==0:
+        max_occurecnce = Counter(feature_df['pitch_index']).most_common(2)[0][1]
+        count=0
+        thserhlod_value=0
+        for key, val in sorted(Counter(feature_df['pitch_index']).items()):
+                if key!=0 and key!=1 and key!=3 and key!=13 and key!=15:
+                    thserhlod_value+=val
+                    count+=1
+        thserhlod_value= thserhlod_value//(count-1)
 
-    feature_df = feature_df.sample(frac=1).reset_index(drop=True)
-    feature_df.sort_values('pitch_index', inplace=True)
-    feature_df.reset_index(inplace=True, drop=True)
+        feature_df = feature_df.sample(frac=1).reset_index(drop=True)
+        feature_df.sort_values('pitch_index', inplace=True)
+        feature_df.reset_index(inplace=True, drop=True)
 
-    zero_seperation_value = 40 if max_occurecnce-thserhlod_value >= 40 else max_occurecnce-thserhlod_value
+        zero_seperation_value = 0 if thserhlod_value>max_occurecnce else max_occurecnce-thserhlod_value
+        
 
-    # iloc, shuffle and rest
-    feature_df = feature_df.iloc[max_occurecnce-zero_seperation_value:]
-    feature_df = feature_df.sample(frac=1).reset_index(drop=True)
+        # iloc, shuffle and rest
+        feature_df = feature_df.iloc[zero_seperation_value:]
+        feature_df = feature_df.sample(frac=1).reset_index(drop=True)
     
     return feature_df
 
@@ -484,6 +483,9 @@ def construct_test_set(event_files):
     except FileNotFoundError:
         print('No feature data for: {}'.format(match_id))
         return
+    
+    # iloc, shuffle and rest
+    feature_df = feature_df.sample(frac=1).reset_index(drop=True)
     
     return feature_df
 
