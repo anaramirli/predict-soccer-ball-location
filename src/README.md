@@ -7,7 +7,7 @@ This is the notebook you can use to check if your system meets the requirements 
 
 ### DBSCAN-test.ipynb
 ---------------------
-In this notebook, we compute DBSCAN clustering features and see if they can potentially be used to predict segments of interest.
+In this notebook, we compute desnity-based clustering (DBSCAN) features and see if they can potentially be used to predict segments of interest.
 
 ### feature_construction.ipynb
 ------------------------------
