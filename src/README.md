@@ -1,6 +1,14 @@
 ## Core Source Files
 These are the notebooks used during model development and optimization.
 
+### requirements.ipynb
+----------------------
+This is the notebook you can use to check if your system meets the requirements to run all the notebooks. If all is okay, then you're good to go.
+
+### DBSCAN-test.ipynb
+---------------------
+In this notebook, we compute DBSCAN clustering features and see if they can potentially be used to predict segments of interest.
+
 ### feature_construction.ipynb
 ------------------------------
 This is the notebook in which we compute features from player coordinate data. This notebook contains our initial feature construction code. We generate input (aligning player trajectories based in role and then setting new features based on spatiotemporal data) and output data in order to build model for predicting ball location over the pitch. Due to losses in data, some matches have been extracted, so the total number of matches used is 299.
@@ -26,7 +34,3 @@ In this notebook, we construct training and test datasets using already computed
 ### utils.py
 ------------
 This file contains the common utility functions that are used from different notebooks.
-
-### requirements.ipynb
-----------------------
-This is the notebook you can use to check if your system meets the requirements to run all the notebooks.
