@@ -23,13 +23,17 @@ In this notebook, we analyze player coordinate data by plotting various simple f
 -------------------------
 In this document, we aim to find ball location during the game. As there are infinite numbers of the data points in the pitch surface, it's merely impossible to predict exact ball location each time. Then we analyze number of assignments to each position segments.
 
+### dataset_construction.ipynb
+------------------------------
+In this notebook, we construct training and test datasets using already computed feature datasets.
+
 ### scale_roleassign_visualization.ipynb
 ----------------------------------------
 In this notebook, we visualize player avrg position (before and after scaling states) by drawing their average position using matplotlip. And also show example of role assignment.
 
-### dataset_construction.ipynb
-------------------------------
-In this notebook, we construct training and test datasets using already computed feature datasets.
+### pitch_segment_visualization.ipynb
+-------------------------------------
+In this notebook, we visualize our segments and pitch index assignment.
 
 ### utils.py
 ------------
