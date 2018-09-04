@@ -366,44 +366,40 @@ def plot_confusion_matrix(cm,
 
 
 
-def define_pitch_index(x,y):
-    '''
+def pitch_index(x,y):
+    
+    ''' 
     Function to define pitch index and role
     
     Parameters
     ----------
     x, y: coordinates
     
-    pitch_value: pitch segment value
     
     Returns
     -------
     1-9: pitch index
-        0: Null index(0) represents all the index categories, that occur when the game stops.
     '''
-    i=0
-    j=0
     
-    if y<=20:
-        i=0
-    elif y<=48:
-        i=1
-    else:
-        i=2
-        
-    if x<=25:
-        j=1
-    elif x<=75:
-        j=4
-    else:
-        j=7
+    segments = geopandas.GeoSeries({
+        '1': Polygon([(0,0), (0,21), (27,15), (37,0)]),
+        '2': Polygon([(0,47), (27, 53), (27,15), (0,21)]),
+        '3': Polygon([(0,47), (0,68), (37,68), (27,53)]),
+        '4': Polygon([(27,15), (78,15), (68,0), (37,0)]),
+        '5': Polygon([(27, 25), (78, 15), (78, 53), (27, 53)]),
+        '6': Polygon([(27,53), (78,53), (68,68), (37,68)]),
+        '7': Polygon([(105,0), (105,21), (78,15), (68,0)]),
+        '8': Polygon([(105,47), (78,53), (78,15), (105,21)]),
+        '9': Polygon([(105,47), (105,68), (68,68), (78,53)])
+    })
+    
+    point = Point(x, y)
 
-    index = i+j   
-    
-    
-    assert index>0, 'Index can not be zero or non negative: index-value: {}, x-value: {}, y-value: {}'.format(index, x,y)
-    
-    return index
+    for i in range(len(segments)):
+        if segments[i].contains(point)==True or segments[i].intersects(point)==True:
+            return i+1
+
+    return 0
 
 
 def construct_train_set(event_files):
