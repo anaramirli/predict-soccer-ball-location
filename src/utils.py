@@ -473,7 +473,7 @@ def construct_train_set(event_files):
     
     return feature_df
 
-def construct_test_set(event_files):
+def construct_data_set(event_files):
     pd.options.mode.chained_assignment = None
     feature_df = pd.DataFrame()
 
