@@ -25,6 +25,8 @@ import scipy as sc
 import warnings
 import functools
 import itertools
+from shapely.geometry import Point, Polygon
+import geopandas
 
 
 from sklearn.cluster import DBSCAN
@@ -366,7 +368,7 @@ def plot_confusion_matrix(cm,
 
 
 
-def pitch_index(x,y):
+def define_pitch_index(x,y):
     
     ''' 
     Function to define pitch index and role
@@ -386,7 +388,7 @@ def pitch_index(x,y):
         '2': Polygon([(0,47), (27, 53), (27,15), (0,21)]),
         '3': Polygon([(0,47), (0,68), (37,68), (27,53)]),
         '4': Polygon([(27,15), (78,15), (68,0), (37,0)]),
-        '5': Polygon([(27, 25), (78, 15), (78, 53), (27, 53)]),
+        '5': Polygon([(27, 15), (78, 15), (78, 53), (27, 53)]),
         '6': Polygon([(27,53), (78,53), (68,68), (37,68)]),
         '7': Polygon([(105,0), (105,21), (78,15), (68,0)]),
         '8': Polygon([(105,47), (78,53), (78,15), (105,21)]),
@@ -399,7 +401,8 @@ def pitch_index(x,y):
         if segments[i].contains(point)==True or segments[i].intersects(point)==True:
             return i+1
 
-    return 0
+    
+    assert False, "Index can not be zero! {x}, {y}".format(x=x, y=y)
 
 
 def construct_train_set(event_files):
