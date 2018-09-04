@@ -334,7 +334,7 @@ def plot_confusion_matrix(cm,
         vmin = 0
         vmax = 1
 
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(9, 9))
     cax = plt.imshow(
         cm, interpolation='nearest', vmin=vmin, vmax=vmax, cmap=cmap)
     plt.colorbar(cax)
@@ -378,57 +378,28 @@ def define_pitch_index(x,y):
     
     Returns
     -------
-    1-33: pitch index
+    1-9: pitch index
         0: Null index(0) represents all the index categories, that occur when the game stops.
     '''
     i=0
     j=0
     
-
-    if y<=22:
+    if y<=20:
         i=0
-    elif y<=46:
+    elif y<=48:
         i=1
     else:
         i=2
         
-    if x<=22.5:
+    if x<=25:
         j=1
-    elif x<=42.5:
+    elif x<=75:
         j=4
-    elif x<=62.5:
-        j=7
-    elif x<=82.5:
-        j=10
     else:
-        j=13
-   
+        j=7
+
     index = i+j   
     
-#     if y>22 and y<=46:
-#         if x<=10.5:
-#             index=2
-#         elif x<=21:
-#             index=4
-        
-#         if x>84:
-#             if x<=94.5:
-#                 index = 24
-#             else:
-#                 index = 26
-    
-        
-#     if x<=21:
-#         if y<=22:
-#             index = 1
-#         elif y>46:
-#             index = 3
-        
-#     if x>84:
-#         if y<=22:
-#             index = 23
-#         elif y>46:
-#             index = 25
     
     assert index>0, 'Index can not be zero or non negative: index-value: {}, x-value: {}, y-value: {}'.format(index, x,y)
     
