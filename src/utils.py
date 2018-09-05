@@ -479,7 +479,7 @@ def define_direction(delta):
     else:
         return -1
     
-def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
+def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data, team_speed):
     '''
     Function to calculates final features based on pitch index and role
     
@@ -570,6 +570,7 @@ def features_adjust(f_group_v, team_v, team_f_speed_dict, x_data, y_data):
         team_v[1] = min(team_x)
         team_v[2] = max(team_y)
         team_v[3] = min(team_y)
+        team_speed[0] += team_v[6]
         team_v[4:7] = team_v[4:7] / len(team_x)
     else:
         team_v[0:7] = 0
