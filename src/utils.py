@@ -279,7 +279,7 @@ def plot_hbar_nameval(names, values, xlabel, max_bars=30):
         name_val = name_val[:max_bars]
     names, values = zip(*name_val)
 
-    plt.figure(figsize=(10, 8))
+#     plt.figure(figsize=(10, 8))
     plt.rcdefaults()
     
     
