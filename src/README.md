@@ -5,15 +5,15 @@ These are the notebooks used during model development and optimization.
 ----------------------
 This is the notebook you can use to check if your system meets the requirements to run all the notebooks. If all is okay, then you're good to go.
 
-### DBSCAN_test.ipynb
----------------------
-In this notebook, we compute desnity-based clustering (DBSCAN) features and see if they can potentially be used to predict segments of interest.
-
 ### feature_construction.ipynb
 ------------------------------
 This is the notebook in which we compute features from player coordinate data. This notebook contains our initial feature construction code. We generate input (aligning player trajectories based in role and then setting new features based on spatiotemporal data) and output data in order to build model for predicting ball location over the pitch. Due to losses in data, some matches have been extracted, so the total number of matches used is 299.
 
 This was our first notebook when we started this project. Therefore, several ideas written in this document may be replaced or not used at all. However, keeping this notebook as a reference may prove useful in further studies.
+
+### dbscan_test.ipynb
+---------------------
+In this notebook, we compute desnity-based clustering (DBSCAN) features and see if they can potentially be used to predict segments of interest.
 
 ### feature_analysis.ipynb
 --------------------------
@@ -29,11 +29,11 @@ In this notebook, we construct training and test datasets using already computed
 
 ### regressor_testing.ipynb
 ---------------------------
-In this document, we test our Random Forest for classifying the ball state (wheter game is stoped or not) and the ball coordinate on the y-axis
+In this document, we test our Random Forest for classifying the ball state (wheter game is stoped or not) and the ball coordinate on the y-axis.
 
 ### classifier_testing.ipynb
 ----------------------------
-In this document, we test our Random Forest for classifying the ball state (wheter game is stoped or not) and the ball y-coordinate segment
+In this document, we test our Random Forest for classifying the ball state (wheter game is stoped or not) and the ball y-coordinate segment.
 
 ### scale_roleassign_visualization.ipynb
 ----------------------------------------
