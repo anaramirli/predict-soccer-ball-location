@@ -21,7 +21,7 @@ In this notebook, we analyze player coordinate data by plotting various simple f
 
 ### target_analysis.ipynb
 -------------------------
-In this document, we aim to find ball location during the game. As there are infinite numbers of the data points in the pitch surface, it's merely impossible to predict exact ball location each time. Then we analyze number of assignments to each position segments.
+In this document, we aim to analyze ball location during the game. As there are infinite numbers of the data points in the pitch surface, it's merely impossible to predict exact ball location each time. Then we analyze number of assignments to each position segments.
 
 ### dataset_construction.ipynb
 ------------------------------
