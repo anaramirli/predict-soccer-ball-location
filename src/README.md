@@ -5,7 +5,7 @@ These are the notebooks used during model development and optimization.
 ----------------------
 This is the notebook you can use to check if your system meets the requirements to run all the notebooks. If all is okay, then you're good to go.
 
-### DBSCAN-test.ipynb
+### DBSCAN_test.ipynb
 ---------------------
 In this notebook, we compute desnity-based clustering (DBSCAN) features and see if they can potentially be used to predict segments of interest.
 
@@ -26,6 +26,14 @@ In this document, we aim to find ball location during the game. As there are inf
 ### dataset_construction.ipynb
 ------------------------------
 In this notebook, we construct training and test datasets using already computed feature datasets.
+
+### regressor_testing.ipynb
+---------------------------
+In this document, we test our Random Forest for classifying the ball state (wheter game is stoped or not) and the ball coordinate on the y-axis
+
+### classifier_testing.ipynb
+----------------------------
+In this document, we test our Random Forest for classifying the ball state (wheter game is stoped or not) and the ball y-coordinate segment
 
 ### scale_roleassign_visualization.ipynb
 ----------------------------------------
