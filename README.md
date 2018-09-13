@@ -9,9 +9,7 @@ Project consists of 3 models:
 2. Ball Location Prediction x-Axis `Random Forest Regressor`
 3. Ball Location Prediction y-Axis `Random Forest Regressor`
 
-
-
-* `src` directory to view `README.md` file describing the notebooks and their structure.
+`src` directory to view `README.md` file describing the notebooks and their structure.
 
 ## License
 This library (all the notebooks) is distributed under Apache License 2.0 . Please see Apache License 2.0 terms to learn about how to use this library.
