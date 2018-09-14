@@ -2,7 +2,7 @@
 
 Model which is designed to predict ball location on the pitch during a soccer match using spatiotemporal data by utilizing machine learning algorithms.
 
-The project contains data analysis, features construction, model development and testing files written using jupyter notebooks, python and js.
+The project contains data analysis, features construction, model development and testing files written using python.
 
 Project consists of 3 models:
 * Game State Model (determines whether game is stopped or not) `Random Forest Classifier`
