@@ -11,7 +11,6 @@ Project consists of 3 models:
 
 `src` directory to view `README.md` file describing the notebooks and their structure.
 
-### Result:
 ![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/ballTracker.gif)
 
 ## License
