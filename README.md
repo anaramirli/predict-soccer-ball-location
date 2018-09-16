@@ -11,7 +11,7 @@ Project consists of 3 models:
 
 `src` directory to view `README.md` file describing the notebooks and their structure.
 
-![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/ballTracker.gif)
+![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/ballTracker2.gif)
 
 ## License
 This library (all the notebooks) is distributed under Apache License 2.0 . Please see Apache License 2.0 terms to learn about how to use this library.
