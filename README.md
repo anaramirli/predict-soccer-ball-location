@@ -15,3 +15,14 @@ Project consists of 3 models:
 
 ## License
 This library (all the notebooks) is distributed under Apache License 2.0 . Please see Apache License 2.0 terms to learn about how to use this library.
+
+
+# Project Instructions
+
+## Gettin Started
+
+1. Clone the repository, and navigate to the downloaded folder.
+
+    git clone https://github.com/anaramirli/soccerBallTracker.git
+    cd soccerBallTracker
+    
