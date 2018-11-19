@@ -19,7 +19,7 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 
 # Project Instructions
 
-## Gettin Started
+## Getting Started
 
 1. Clone the repository, and navigate to the downloaded folder.
 
@@ -31,6 +31,21 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 2. Create (and activate) a new environment with Python 3.6 and the numpy package.
 
     * **Linux** or **Mac**:
-    `conda create --name aind-vui python=3.5 numpy`
-    `activate aind-vui`
+    ```
+    conda create --name aind-vui python=3.5 numpy
+    source activate aind-vui
+    ```
+    
+    * **Windows**:
+    
+    ```
+    conda create --name aind-vui python=3.5 numpy scipy
+    activate aind-vui
+    ```
+
+3. Check requiremenets.
+    ```
+    python requirements.py
+    ```
+    
     
