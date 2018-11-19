@@ -23,6 +23,12 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 
 1. Clone the repository, and navigate to the downloaded folder.
 
-    git clone https://github.com/anaramirli/soccerBallTracker.git
-    cd soccerBallTracker
+    `git clone https://github.com/anaramirli/soccerBallTracker.git<br>
+    cd soccerBallTracker`
+    
+2. Create (and activate) a new environment with Python 3.6 and the numpy package.
+
+    * **Linux** or **Mac**:
+    `conda create --name aind-vui python=3.5 numpy`
+    `activate aind-vui`
     
