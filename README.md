@@ -39,13 +39,13 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
     * **Windows**:
     
     ```
-    conda create --name aind-vui python=3.5 numpy scipy
+    conda create --name aind-vui python=3.6 numpy scipy
     activate aind-vui
     ```
 
 3. Check requiremenets.
     ```
-    python requirements.py
+    requirements.txt
     ```
     
     
