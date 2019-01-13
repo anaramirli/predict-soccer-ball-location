@@ -13,9 +13,9 @@ Project consists of 3 models:
 
 ![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/sample.gif)
 
-* **Orange and blue points**: Home and Ayaw team players</br>
-* **Green point**: Actual ball location</br>
-* **Red point**: Predicted ball location</br>
+- **Orange and blue points**: Home and away team players</br>
+- **Green point**: Actual ball location</br>
+- **Red point**: Predicted ball location</br>
 
 ## License
 This library (all the notebooks) is distributed under Apache License 2.0 . Please see Apache License 2.0 terms to learn about how to use this library.
