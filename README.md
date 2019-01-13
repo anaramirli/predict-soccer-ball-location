@@ -29,7 +29,7 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 
     ```
     git clone https://github.com/anaramirli/soccer-ball-tracker.git
-    cd soccerBallTracker
+    cd soccer-ball-tracker
     ```
     
 2. Create (and activate) a new environment with Python 3.6 and the numpy package.
