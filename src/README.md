@@ -1,7 +1,7 @@
 ## Core Source Files
 These are the notebooks used during model development and optimization.
 
-### requirements.ipynb
+### requirements.py
 ----------------------
 This is the notebook you can use to check if your system meets the requirements to run all the notebooks. If all is okay, then you're good to go.
 
