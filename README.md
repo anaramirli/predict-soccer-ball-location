@@ -28,7 +28,7 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 1. Clone the repository, and navigate to the downloaded folder.
 
     ```
-    git clone https://github.com/anaramirli/soccerBallTracker.git
+    git clone https://github.com/anaramirli/soccer-ball-tracker.git
     cd soccerBallTracker
     ```
     
