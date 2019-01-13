@@ -45,7 +45,5 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 
 3. Check requiremenets.
     ```
-    requirements.txt
+    requirements.py
     ```
-    
-    
