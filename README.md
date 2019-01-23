@@ -36,15 +36,15 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 
     * **Linux** or **Mac**:
     ```
-    conda create --name aind-vui python=3.6 numpy
-    source activate aind-vui
+    conda create --name my_env python=3.6 numpy keras scikit-learn
+    source activate my_env
     ```
     
     * **Windows**:
     
     ```
-    conda create --name aind-vui python=3.6 numpy scipy
-    activate aind-vui
+    conda create --name my_env python=3.6 numpy scipy keras scikit-learn
+    activate my_env
     ```
 
 3. Check requiremenets.
