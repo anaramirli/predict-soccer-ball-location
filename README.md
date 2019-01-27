@@ -36,14 +36,14 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 
     * **Linux** or **Mac**:
     ```
-    conda create --name my_env python=3.6 numpy keras scikit-learn
+    conda create --name my_env python=3.6
     source activate my_env
     ```
     
     * **Windows**:
     
     ```
-    conda create --name my_env python=3.6 numpy scipy keras scikit-learn
+    conda create --name my_env python=3.6
     activate my_env
     ```
 
