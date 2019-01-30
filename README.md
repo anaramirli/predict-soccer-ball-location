@@ -1,6 +1,6 @@
 # Predicting Ball Location From Optical Tracking Data
 
-The real-time prediction of the ball locationin a soccer match using the x and  y coordinatesof each player on the soccer field. The data is provided by an optical  tracking  system  developed  by start-up  company  ![Sentio  Sports  Analytics](https://sentiosports.com/). The predictions of this regressor were intended to be used in one of theSentio’s existing products. 
+The real-time prediction of the ball locationin a soccer match using the x and  y coordinatesof each player on the soccer field. The data is provided by an optical  tracking  system  developed  by start-up  company [Sentio  Sports  Analytics](https://sentiosports.com/). The predictions of this regressor were intended to be used in one of theSentio’s existing products. 
 
 The project contains data analysis, features construction, model development and testing files written using python.
 
