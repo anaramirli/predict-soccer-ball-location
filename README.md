@@ -7,6 +7,8 @@ points). The average coefficient of determination R^2 of the ball tracking model
 
 The data is provided by an optical  tracking  system  developed  by start-up  company [Sentio  Sports  Analytics](https://sentiosports.com/).
 
+This study is partially supported by TUBITAK under the grant number 118C019 and by ODTÜ BAP under project code YÖP-312- 2018-2816. 
+
 The project contains data analysis, features construction, model development and testing files written using python.
 
 Project consists of 3 models:
