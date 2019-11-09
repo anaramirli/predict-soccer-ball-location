@@ -33,10 +33,9 @@ Performance overview:
 </br>
 
 ![](https://github.com/anaramirli/predict-soccer-ball-location/blob/master/assets/sample.gif)
-
-- *Orange and blue points*: home and away team players</br>
-- *Green point*: actual ball location</br>
-- *Red point*: predicted ball location</br>
+*<span style="color:orange">Orange</span> and <span style="color:blue">blue</span> points*. : home and away team players</br>
+*<span style="color:green">Green</span> points*: actual ball location</br>
+*<span style="color:red">Red</span> points*: predicted ball location</br>
 
 
 ## License
