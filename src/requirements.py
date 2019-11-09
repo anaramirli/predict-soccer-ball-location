@@ -3,6 +3,7 @@ import numpy
 import scipy
 import pandas
 import matplotlib
+import keras
 import sklearn
 import operator
 import json
