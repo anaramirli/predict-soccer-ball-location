@@ -29,12 +29,14 @@ Performance overview:
 | X REG | 11.33/8.25 m | 11.67/8.43 m | 12.63/9.06 m
 | Y REG | 9.48/7.15 m | 9.75/7.26 m | 10.29/7.65 m
 
+</br>
+</br>
 
 ![](https://github.com/anaramirli/predict-soccer-ball-location/blob/master/assets/sample.gif)
 
-- **Orange and blue points**: Home and away team players</br>
-- **Green point**: Actual ball location</br>
-- **Red point**: Predicted ball location</br>
+-> Orange and blue points: Home and away team players</br>
+-> Green point: Actual ball location</br>
+-> Red point: Predicted ball location</br>
 
 
 ## License
