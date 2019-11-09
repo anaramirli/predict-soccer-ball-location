@@ -1,1 +1,0 @@
-![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/sample.gif)

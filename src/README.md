@@ -8,7 +8,7 @@ Directories:
     * **NNParameterValdate.py**: validate values of given nn structure
     * **Utils.py**: general utility functions
 * **feature analysis**: contains ipynb files for feature and target data analyzing. those analyses were conducted with old datasets, therefore labels can be different.
-* **RF old**: contains previous files for training and testing models with old datasets using random forest methods.
+* **rf old**: contains previous files for training and testing models with old datasets using random forest methods.
 * **rest api**: fetching json data from rest apis
 * **logs**: contains logs of nn model training
 

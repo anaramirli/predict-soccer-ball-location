@@ -6,7 +6,7 @@ conducted on a dataset of 298 matches from the Turkish Football Federation Super
 points).
 
 
-![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/sample.gif)
+![](https://github.com/anaramirli/predict-soccer-ball-location/blob/master/assets/sample.gif)
 
 - **Orange and blue points**: Home and away team players</br>
 - **Green point**: Actual ball location</br>
