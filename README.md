@@ -14,8 +14,8 @@ The project contains data analysis, features construction, model development and
 
 Project consists of 3 models:
 * Game-state CLF: nn classification model determines whether game is stopped or not
-* X REG: nn regression model predicts ball's location on x-Axis
-* Y REG: nn regression model predicts ball's location on y-Axis
+* X REG: nn regression model predicts ball's location on x-axis
+* Y REG: nn regression model predicts ball's location on y-axis
 
 Performance overview:
 
@@ -34,9 +34,9 @@ Performance overview:
 
 ![](https://github.com/anaramirli/predict-soccer-ball-location/blob/master/assets/sample.gif)
 
--> Orange and blue points: Home and away team players</br>
--> Green point: Actual ball location</br>
--> Red point: Predicted ball location</br>
+- *Orange and blue points*: home and away team players</br>
+- *Green point*: actual ball location</br>
+- *Red point*: predicted ball location</br>
 
 
 ## License
