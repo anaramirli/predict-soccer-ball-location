@@ -6,17 +6,9 @@ conducted on a dataset of 298 matches from the Turkish Football Federation Super
 points).
 
 
-![](https://github.com/anaramirli/predict-soccer-ball-location/blob/master/assets/sample.gif)
-
-- **Orange and blue points**: Home and away team players</br>
-- **Green point**: Actual ball location</br>
-- **Red point**: Predicted ball location</br>
-
-
 The data is provided by an optical  tracking  system  developed  by start-up  company [Sentio  Sports  Analytics](https://sentiosports.com/).
 
 This study is partially supported by TUBITAK under the grant number 118C019 and by ODTÜ BAP under project code YÖP-312- 2018-2816.
-
 
 The project contains data analysis, features construction, model development and testing files written using python.
 
@@ -36,6 +28,13 @@ Performance overview:
 | :--- | :---: | :---: | :---: 
 | X REG | 11.33/8.25 m | 11.67/8.43 m | 12.63/9.06 m
 | Y REG | 9.48/7.15 m | 9.75/7.26 m | 10.29/7.65 m
+
+
+![](https://github.com/anaramirli/predict-soccer-ball-location/blob/master/assets/sample.gif)
+
+- **Orange and blue points**: Home and away team players</br>
+- **Green point**: Actual ball location</br>
+- **Red point**: Predicted ball location</br>
 
 
 ## License
