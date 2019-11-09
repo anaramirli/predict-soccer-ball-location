@@ -5,9 +5,18 @@ optical tracking data with a random forest classifier. The rolespecific analysis
 conducted on a dataset of 298 matches from the Turkish Football Federation Super League 2017-2018 season (≈34,000,000 data
 points).
 
+
+![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/sample.gif)
+
+- **Orange and blue points**: Home and away team players</br>
+- **Green point**: Actual ball location</br>
+- **Red point**: Predicted ball location</br>
+
+
 The data is provided by an optical  tracking  system  developed  by start-up  company [Sentio  Sports  Analytics](https://sentiosports.com/).
 
-This study is partially supported by TUBITAK under the grant number 118C019 and by ODTÜ BAP under project code YÖP-312- 2018-2816. 
+This study is partially supported by TUBITAK under the grant number 118C019 and by ODTÜ BAP under project code YÖP-312- 2018-2816.
+
 
 The project contains data analysis, features construction, model development and testing files written using python.
 
@@ -28,14 +37,6 @@ Performance overview:
 | X REG | 11.33/8.25 m | 11.67/8.43 m | 12.63/9.06 m
 | Y REG | 9.48/7.15 m | 9.75/7.26 m | 10.29/7.65 m
 
-
-`src` directory to view `README.md` file describing the notebooks and their structure.
-
-![](https://github.com/anaramirli/soccerBallTracker/blob/master/src/assets/sample.gif)
-
-- **Orange and blue points**: Home and away team players</br>
-- **Green point**: Actual ball location</br>
-- **Red point**: Predicted ball location</br>
 
 ## License
 This library (all the notebooks) is distributed under Apache License 2.0 . Please see Apache License 2.0 terms to learn about how to use this library.

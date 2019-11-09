@@ -1,0 +1,126 @@
+DATETIME: 2019-10-19 23:14:49.627839
+------------------------------------
+Training has ended in 34 minutes and 52 seconds
+
+1. MODEL
+input: {'layer': 200, 'activation': 'relu'}
+dropout0: {'ratio': 0.2}
+hidden0: {'layer': 200, 'activation': 'relu'}
+hidden1: {'layer': 200, 'activation': 'relu'}
+output: {'layer': 1, 'activation': 'relu'}
+
+2. RESULTS
+loss: 92.5492
+mean_absolute_error: 7.2929
+val_loss: 96.8476
+val_mean_absolute_error: 7.524
+
+
+DATETIME: 2019-10-20 00:04:08.259122
+------------------------------------
+Training has ended in 49 minutes and 18 seconds
+
+1. MODEL
+input: {'layer': 299, 'activation': 'relu'}
+dropout0: {'ratio': 0.2}
+hidden0: {'layer': 299, 'activation': 'relu'}
+hidden1: {'layer': 299, 'activation': 'relu'}
+output: {'layer': 1, 'activation': 'relu'}
+
+2. RESULTS
+loss: 91.0157
+mean_absolute_error: 7.2241
+val_loss: 95.7042
+val_mean_absolute_error: 7.4128
+
+
+DATETIME: 2019-10-20 01:15:44.698730
+------------------------------------
+Training has ended in 54 minutes and 54 seconds
+
+1. MODEL
+input: {'layer': 200, 'activation': 'relu'}
+dropout0: {'ratio': 0.2}
+hidden0: {'layer': 200, 'activation': 'relu'}
+hidden1: {'layer': 200, 'activation': 'relu'}
+hidden2: {'layer': 200, 'activation': 'relu'}
+hidden3: {'layer': 200, 'activation': 'relu'}
+hidden4: {'layer': 200, 'activation': 'relu'}
+output: {'layer': 1, 'activation': 'relu'}
+
+2. RESULTS
+loss: 90.5184
+mean_absolute_error: 7.1921
+val_loss: 95.8322
+val_mean_absolute_error: 7.4391
+
+
+DATETIME: 2019-10-20 02:49:46.754507
+------------------------------------
+Training has ended in 94 minutes and 1 seconds
+
+1. MODEL
+input: {'layer': 299, 'activation': 'relu'}
+dropout0: {'ratio': 0.2}
+hidden0: {'layer': 299, 'activation': 'relu'}
+hidden1: {'layer': 299, 'activation': 'relu'}
+hidden2: {'layer': 299, 'activation': 'relu'}
+hidden3: {'layer': 299, 'activation': 'relu'}
+hidden4: {'layer': 299, 'activation': 'relu'}
+output: {'layer': 1, 'activation': 'relu'}
+
+2. RESULTS
+loss: 87.5232
+mean_absolute_error: 7.0739
+val_loss: 94.4228
+val_mean_absolute_error: 7.3945
+
+
+DATETIME: 2019-10-20 04:00:56.567627
+------------------------------------
+Training has ended in 71 minutes and 9 seconds
+
+1. MODEL
+input: {'layer': 200, 'activation': 'relu'}
+dropout0: {'ratio': 0.2}
+hidden0: {'layer': 200, 'activation': 'relu'}
+hidden1: {'layer': 200, 'activation': 'relu'}
+hidden2: {'layer': 200, 'activation': 'relu'}
+hidden3: {'layer': 200, 'activation': 'relu'}
+hidden4: {'layer': 200, 'activation': 'relu'}
+hidden5: {'layer': 200, 'activation': 'relu'}
+hidden6: {'layer': 200, 'activation': 'relu'}
+hidden7: {'layer': 200, 'activation': 'relu'}
+output: {'layer': 1, 'activation': 'relu'}
+
+2. RESULTS
+loss: 90.0271
+mean_absolute_error: 7.1689
+val_loss: 96.3349
+val_mean_absolute_error: 7.5131
+
+
+DATETIME: 2019-10-20 06:09:21.725034
+------------------------------------
+Training has ended in 128 minutes and 24 seconds
+
+1. MODEL
+input: {'layer': 299, 'activation': 'relu'}
+dropout0: {'ratio': 0.2}
+hidden0: {'layer': 299, 'activation': 'relu'}
+hidden1: {'layer': 299, 'activation': 'relu'}
+hidden2: {'layer': 299, 'activation': 'relu'}
+hidden3: {'layer': 299, 'activation': 'relu'}
+hidden4: {'layer': 299, 'activation': 'relu'}
+hidden5: {'layer': 299, 'activation': 'relu'}
+hidden6: {'layer': 299, 'activation': 'relu'}
+hidden7: {'layer': 299, 'activation': 'relu'}
+output: {'layer': 1, 'activation': 'relu'}
+
+2. RESULTS
+loss: 89.8301
+mean_absolute_error: 7.1483
+val_loss: 95.0179
+val_mean_absolute_error: 7.256
+
+
