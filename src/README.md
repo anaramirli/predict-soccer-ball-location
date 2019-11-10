@@ -2,7 +2,7 @@ This markdown gives a brief intro into the "scr" structure.
 
 Directories:
 * **classes**: contains main classes and models
-    * **DataModel.py**: data model. main modules on on data-handling. 
+    * **DataModel.py**: data model and main modules for data-handling. 
     * **FeatureBuilder.py**: calculates features from given data
     * **NNBuilder.py**: for easily generating the desired nn models in traning 
     * **NNParameterValdate.py**: validate values of given nn structure
