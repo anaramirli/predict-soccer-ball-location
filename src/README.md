@@ -7,6 +7,7 @@ Directories:
     * **NNBuilder.py**: for easily generating the desired nn models in traning 
     * **NNParameterValdate.py**: validate values of given nn structure
     * **Utils.py**: general utility functions
+* **dataset**: contains zip file, which stores the compressed [train&test].csv files
 * **feature analysis**: contains ipynb files for feature and target data analyzing. those analyses were conducted with old datasets, therefore labels can be different.
 * **rf old**: contains previous files for training and testing models with old datasets using random forest methods.
 * **rest api**: fetching json data from rest apis
