@@ -49,8 +49,8 @@ This library (all the notebooks) is distributed under Apache License 2.0 . Pleas
 1. Clone the repository, and navigate to the downloaded folder.
 
     ```
-    git clone https://github.com/anaramirli/soccer-ball-tracker.git
-    cd soccer-ball-tracker
+    git clone https://github.com/anaramirli/predict-soccer-ball-location.git
+    cd predict-soccer-ball-location
     ```
     
 2. Create (and activate) a new environment with Python 3.6 and the numpy package.
