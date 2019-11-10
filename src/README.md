@@ -1,4 +1,4 @@
-This markdown gives a brief intro into the "scr" structure.
+This markdown gives a brief intro to the contents of "scr" folder.
 
 Directories:
 * **classes**: contains main classes and models
