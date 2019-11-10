@@ -4,7 +4,7 @@ Directories:
 * **classes**: contains main classes and models
     * **DataModel.py**: data model. main modules on on data-handling. 
     * **FeatureBuilder.py**: calculates features from given data
-    * **NNBuilder.py**: for generating the desired nn model using 
+    * **NNBuilder.py**: for easily generating the desired nn models in traning 
     * **NNParameterValdate.py**: validate values of given nn structure
     * **Utils.py**: general utility functions
 * **feature analysis**: contains ipynb files for feature and target data analyzing. those analyses were conducted with old datasets, therefore labels can be different.
