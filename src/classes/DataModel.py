@@ -5,7 +5,10 @@ from scipy.ndimage.interpolation import shift
 class DataModel(object):
     
     # CONSTANTS
-    referee_id = 0
+    referee_id = 0  
+    segment_values = {'x':{'start':7, 'end':98}, 'y':{'start':0, 'end':68}} # segment start and end: used in scaling
+    
+    # default vars
     role_segment_coord = {'LB':[-1,  40, -1, 19],    # Left Back 
                           'CB':[-1,  35,  19, 49],   # Center Back
                           'RB':[-1,  40,  49, 69],   # Right Back
@@ -13,9 +16,6 @@ class DataModel(object):
                           'CM':[ 35,  75,  19, 49],  # Center Midfielder  
                           'RW':[ 40, 106,  49, 69], # Right Winger
                           'CF':[ 75, 106,  19, 49]}  # Center Forward/Attacking Middle
-   
-    
-    segment_values = {'x':{'start':7, 'end':98}, 'y':{'start':0, 'end':68}} # segment start and end used in scaling
 
     # initialization
     def __init__(self, minutes_step=15):
@@ -176,14 +176,26 @@ class DataModel(object):
                 self.add_player_activity(data_t['teamId'], data_t['hasballTeamId'], data_t['jerseyNumber'], data_t['xpos'], data_t['ypos'])
                 
       
-    def get_role_list(self):
+    def get_role_segment_coord(self):
         
         '''
         Get players role list
         
         '''
 
-        return list(self.role_segment_coord.keys())
+        return self.role_segment_coord
+    
+    def set_role_segment_coord(self, role_segment_coord):
+        
+        '''
+        Set players role list
+        
+        '''
+        
+        if(type(role_segment_coord)!=dict):
+            assert False, "variable must be dictionary, instead it found to be type of {}".format(type(role_segment_coord))
+        else:
+            self.role_segment_coord = role_segment_coord
     
                 
     def scale_linear_data(self, value, max_v, min_v, std_v, segment_start, segment_end):
