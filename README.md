@@ -8,7 +8,6 @@ points).
 
 The data is provided by an optical  tracking  system  developed  by start-up  company [Sentio  Sports  Analytics](https://sentiosports.com/).
 
-This study is partially supported by TUBITAK under the grant number 118C019 and by ODTÜ BAP under project code YÖP-312- 2018-2816.
 
 The project contains data analysis, features construction, model development and testing files written using python.
 
@@ -19,15 +18,10 @@ Project consists of 3 models:
 
 Performance overview:
 
-| Model | Train Acc/Loss | Validation Acc/Loss | Test Acc/Loss
+| Model | Train RMSE / MAE Loss | Validation RMSE / MAE Loss | Test RMSE / MAE Loss
 | :--- | :---: | :---: | :---: 
-| Game-state CLF | 87.78/30.45% | 87.44/31.76% | 85.00/37.29%
-
-
-| Model | Train MSE / MAE Loss | Validation MSE / MAE Loss | Test MSE / MAE Loss
-| :--- | :---: | :---: | :---: 
-| X REG | 11.33/8.25 m | 11.67/8.43 m | 12.63/9.06 m
-| Y REG | 9.48/7.15 m | 9.75/7.26 m | 10.29/7.65 m
+| X REG | 9.90/6.47 m | 11.23/7.39 m | 11.46/7.56 m
+| Y REG | 2.01/1.62 m | 2.00/1.61 m | 2.00/1.61 m
 
 </br>
 </br>
