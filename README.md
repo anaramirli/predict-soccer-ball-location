@@ -11,8 +11,7 @@ The data is provided by an optical  tracking  system  developed  by start-up  co
 
 The project contains data analysis, features construction, model development and testing files written using python.
 
-Project consists of 3 models:
-* Game-state CLF: nn classification model determines whether game is stopped or not
+Project consists of 2 models:
 * X REG: nn regression model predicts ball's location on x-axis
 * Y REG: nn regression model predicts ball's location on y-axis
 
