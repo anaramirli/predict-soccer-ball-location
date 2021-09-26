@@ -2,7 +2,7 @@
 
 In this study, an automated method for predicting the ball’s location during a soccer match has been developed using
 optical tracking data. The rolespecific analysis using the individual player attributes has been
-conducted on a dataset of 298 matches from the Turkish Football Federation Super League 2017-2018 season (≈34,000,000 data
+conducted on a dataset of 300 matches from the Turkish Football Federation Super League 2017-2018 season (≈34,000,000 data
 points).
 
 
