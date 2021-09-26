@@ -11,17 +11,6 @@ The data is provided by an optical  tracking  system  developed  by start-up  co
 
 The project contains data analysis, features construction, model development and testing files written using python.
 
-Project consists of 2 models:
-* X REG: nn regression model predicts ball's location on x-axis
-* Y REG: nn regression model predicts ball's location on y-axis
-
-Performance overview:
-
-| Model | Train RMSE / MAE Loss | Validation RMSE / MAE Loss | Test RMSE / MAE Loss
-| :--- | :---: | :---: | :---: 
-| X REG | 9.90/6.47 m | 11.23/7.39 m | 11.46/7.56 m
-| Y REG | 2.01/1.62 m | 2.00/1.61 m | 2.00/1.61 m
-
 </br>
 </br>
 
