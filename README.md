@@ -1,5 +1,7 @@
 # Predicting Ball Location From Optical Tracking Data
 
+This repisotory is part of our 2022 paper titled: ["Prediction of the Ball Location on the 2D Plane in Football Using Optical Tracking Data"](https://dergipark.org.tr/en/pub/apjess/issue/68140/1060725)
+
 In this study, an automated method for predicting the ball’s location during a soccer match has been developed using
 optical tracking data. The rolespecific analysis using the individual player attributes has been
 conducted on a dataset of 300 matches from the Turkish Football Federation Super League 2017-2018 season (≈34,000,000 data
