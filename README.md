@@ -5,19 +5,16 @@ optical tracking data. The rolespecific analysis using the individual player att
 conducted on a dataset of 300 matches from the Turkish Football Federation Super League 2017-2018 season (≈34,000,000 data
 points).
 
-
 The data is provided by an optical  tracking  system  developed  by start-up  company [Sentio  Sports  Analytics](https://sentiosports.com/).
-
 
 The project contains data analysis, features construction, model development and testing files written using python.
 
-This repisotory is part of our 2022 paper titled: ["Prediction of the Ball Location on the 2D Plane in Football Using Optical Tracking Data"](https://dergipark.org.tr/en/pub/apjess/issue/68140/1060725)
-
+This repository is part of our 2022 paper titled: ["Prediction of the Ball Location on the 2D Plane in Football Using Optical Tracking Data"](https://dergipark.org.tr/en/pub/apjess/issue/68140/1060725)
 </br>
 </br>
 
 ![](https://github.com/anaramirli/predict-soccer-ball-location/blob/master/assets/sample.gif)
-Orange and blue point -> home and away team players</br>
+Orange and blue point -> home and away team players, respectively</br>
 Green dot -> actual ball location</br>
 Red dot -> predicted ball location</br>
 
